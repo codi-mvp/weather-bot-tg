@@ -19,51 +19,43 @@ bot.start(async (ctx) => {
       ["Красноярск", "Новосибирск"],
     ]).resize(),
   );
+})
 
-  bot.hears("Москва", async (ctx) => {
-    const data = await weatherMoskow();
+  function formateMessage(sityName, data) {
+    if (!data) {
+      return `Не получены данные о погоде в ${sityName}`;
+    }
 
-    const time = data.isDay ? "☀️" : "🌙";
-    const weather = data.isRain ? "☔" : "";
+    const timeEmoji = data.isDay ? "☀️" : "🌙";
+    const weatherEmoji = data.isRain ? "☔" : "";
 
-    await ctx.reply(`🌀 Погода в Москве${time}${weather}:
+    return `🌀 Погода в ${sityName}:${timeEmoji}${weatherEmoji}:
     Температура: ${data.temp}°C
-    Скорость ветра: ${data.windSpeed} Км/ч`);
+    Скорость ветра: ${data.windSpeed} Км/ч`;
+  }
+  bot.hears("Москва", async (ctx) => {
+      const data = await weatherMoskow();
+
+      await ctx.reply(formateMessage("Москве", data));
   });
 
   bot.hears("Питербург", async (ctx) => {
-    const data = await weatherNovosib();
+    const data = await weatherPiter();
 
-    const time = data.isDay ? "☀️" : "🌙";
-    const weather = data.isRain ? "☔" : "";
-
-    await ctx.reply(`🌀 Погода в Питере${time}${weather}:
-  Температура: ${data.temp}°C
-  Скорость ветра: ${data.windSpeed} Км/ч`);
+    await ctx.reply(formateMessage("Питербурге", data));
   });
 
   bot.hears("Красноярск", async (ctx) => {
     const data = await weatherKrasnoyarsk();
 
-    const time = data.isDay ? "☀️" : "🌙";
-    const weather = data.isRain ? "☔" : "";
-
-    await ctx.reply(`🌀 Погода в Красноярске${time}${weather}:
-  Температура: ${data.temp}°C
-  Скорость ветра: ${data.windSpeed} Км/ч`);
+    await ctx.reply(formateMessage("Красноярске", data));
   });
 
   bot.hears("Новосибирск", async (ctx) => {
     const data = await weatherNovosib();
 
-    const time = data.isDay ? "☀️" : "🌙";
-    const weather = data.isRain ? "☔" : "";
-
-    await ctx.reply(`🌀 Погода в Новосибирске${time}${weather}:
-  Температура: ${data.temp}°C
-  Скорость ветра: ${data.windSpeed} Км/ч`);
+    await ctx.reply(formateMessage("Новосибирске", data));
   });
-});
 
 bot.help(async (ctx) => {
   const packageData = JSON.parse(await fs.readFile("package.json", "utf-8"));

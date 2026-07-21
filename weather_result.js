@@ -1,140 +1,40 @@
 import "dotenv/config";
-export async function weatherMoskow() {
+import { error } from "node:console";
+
+async function weather(url) {
   try {
-    const response = await fetch(process.env.API_MOSKOW);
+    const response = await fetch(url);
     if (!response.ok) {
+      throw new Error(`Ошибка статус сервера ${response}`);
     }
     const data = await response.json();
-
-    const temp = Math.floor(data.current.temperature_2m);
-    const windSpeed = Math.floor(data.current.wind_speed_10m);
-    const isDay = () => {
-      if (data.current.is_day === 1) {
-        return true;
-      } else {
-        return false;
-      }
-    };
-    const isRain = () => {
-      if (data.current.rain === 0) {
-        return false;
-      } else {
-        return true;
-      }
-    };
+    if (!data.current) {
+      throw new Error(`Ошибка форматирования в JSON`);
+    }
 
     return {
-      temp,
-      windSpeed,
-      isDay: isDay(),
-      isRain: isRain(),
+      temp: Math.floor(data.current.temperature_2m),
+      windSpeed: Math.floor(data.current.wind_speed_10m),
+      isDay: data.current.is_day === 1,
+      isRain: data.current.rain !== 0,
     };
   } catch (error) {
-    console.error(`Ошибка: ${error.message}`);
+    console.error(`Ошибка ${error.message}`);
+    throw error;
   }
 }
-
-export async function weatherPiter() {
-  try {
-    const response = await fetch(process.env.API_PITERBURG);
-    if (!response.ok) {
-    }
-    const data = await response.json();
-
-    const temp = Math.floor(data.current.temperature_2m);
-    const windSpeed = Math.floor(data.current.wind_speed_10m);
-    const isDay = () => {
-      if (data.current.is_day === 1) {
-        return true;
-      } else {
-        return false;
-      }
-    };
-    const isRain = () => {
-      if (data.current.rain === 0) {
-        return false;
-      } else {
-        return true;
-      }
-    };
-
-    return {
-      temp,
-      windSpeed,
-      isDay: isDay(),
-      isRain: isRain(),
-    };
-  } catch (error) {
-    console.error(`Ошибка: ${error.message}`);
-  }
+export function weatherMoskow() {
+  return weather(process.env.API_MOSKOW);
 }
 
-export async function weatherKrasnoyarsk() {
-  try {
-    const response = await fetch(process.env.API_KRASNOYARSK);
-    if (!response.ok) {
-    }
-    const data = await response.json();
-
-    const temp = Math.floor(data.current.temperature_2m);
-    const windSpeed = Math.floor(data.current.wind_speed_10m);
-    const isDay = () => {
-      if (data.current.is_day === 1) {
-        return true;
-      } else {
-        return false;
-      }
-    };
-    const isRain = () => {
-      if (data.current.rain === 0) {
-        return false;
-      } else {
-        return true;
-      }
-    };
-
-    return {
-      temp,
-      windSpeed,
-      isDay: isDay(),
-      isRain: isRain(),
-    };
-  } catch (error) {
-    console.error(`Ошибка: ${error.message}`);
-  }
+export function weatherPiter() {
+  return weather(process.env.API_PITERBURG);
 }
 
-export async function weatherNovosib() {
-  try {
-    const response = await fetch(process.env.API_NOWOSIBIRSK);
-    if (!response.ok) {
-    }
-    const data = await response.json();
+export function weatherKrasnoyarsk() {
+  return weather(process.env.API_KRASNOYARSK);
+}
 
-    const temp = Math.floor(data.current.temperature_2m);
-    const windSpeed = Math.floor(data.current.wind_speed_10m);
-    const isDay = () => {
-      if (data.current.is_day === 1) {
-        return true;
-      } else {
-        return false;
-      }
-    };
-    const isRain = () => {
-      if (data.current.rain === 0) {
-        return false;
-      } else {
-        return true;
-      }
-    };
-
-    return {
-      temp,
-      windSpeed,
-      isDay: isDay(),
-      isRain: isRain(),
-    };
-  } catch (error) {
-    console.error(`Ошибка: ${error.message}`);
-  }
+export function weatherNovosib() {
+  return weather(process.env.API_NOWOSIBIRSK);
 }
