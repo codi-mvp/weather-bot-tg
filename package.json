@@ -1,6 +1,6 @@
 {
   "name": "tgbot-weather",
-  "version": "1.0.1-alfa",
+  "version": "1.0.2-alfa",
   "description": "",
   "main": "index.js",
   "scripts": {
