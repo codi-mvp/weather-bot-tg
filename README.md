@@ -3,7 +3,7 @@
 
 Телеграмм бот погоды написанный полностью на *JavaScript* с использованием фреймворка [Telegraf](https://telegraf.js.org)
 
-![license](https://img.shields.io/badge/License-MIT-blue) ![Lang](https://img.shields.io/badge/JavaScript-100%-orange?logo=github) ![version](https://img.shields.io/badge/Version-1.0.1-red)
+![license](https://img.shields.io/badge/License-MIT-blue) ![Lang](https://img.shields.io/badge/JavaScript-100%?logo=github) ![version](https://img.shields.io/badge/Version-1.0.1-red)
 ## 🚀 Инструкция по запуску
 
 ### 📍 Запуск Linux MacOS
