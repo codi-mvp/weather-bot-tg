@@ -64,5 +64,5 @@ bot.help(async (ctx) => {
 Copyright (c) 2026 mRq`,
   );
 });
-console.log("hello world");
+
 bot.launch();
