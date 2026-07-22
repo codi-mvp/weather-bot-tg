@@ -1,15 +1,9 @@
-<header>
-<div align="center">
-<h1>🌤️ Telegram weather bot</h1>
 
-<h2>Телеграмм бот погоды написанный полностью на JavaScript с использованием фреймворка Telegraf</h2>
+# 🌤 Telegram weather bot
 
-<a> <img src="https://img.shields.io/badge/License-MIT-blue" /> </a>
-<a> <img src="https://img.shields.io/badge/JavaScript-100%-orange" /> </a>
-<a> <img src="https://img.shields.io/badge/Version-1.0.1-red" /> </a>
-</div>
-</header>
+Телеграмм бот погоды написанный полностью на *JavaScript* с использованием фреймворка [Telegraf](https://telegraf.js.org)
 
+![license](https://img.shields.io/badge/License-MIT-blue) ![Lang](https://img.shields.io/badge/JavaScript-100%-orange?logo=github) ![version](https://img.shields.io/badge/Version-1.0.1-red)
 ## 🚀 Инструкция по запуску
 
 ### 📍 Запуск Linux MacOS
