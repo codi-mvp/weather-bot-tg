@@ -2,10 +2,10 @@
 <div align="center">
 <h1>🌤️ Telegram weather bot</h1>
 
-<h2>Телеграмм бот погоды написанный полностью на *JavaScript* с использованием фреймворка Telegraf</h2>
+<h2>Телеграмм бот погоды написанный полностью на JavaScript с использованием фреймворка Telegraf</h2>
 
 <a> <img src="https://img.shields.io/badge/License-MIT-blue" /> </a>
-<a> <img src="https://img.shields.io/badge/JavaScript-100%-orange?logo=github" /> </a>
+<a> <img src="https://img.shields.io/badge/JavaScript-100%-orange" /> </a>
 <a> <img src="https://img.shields.io/badge/Version-1.0.1-red" /> </a>
 </div>
 </header>
