@@ -59,4 +59,4 @@
 *BOT_TOKEN*: откройте [Bot Father](https://t.me/BotFather) далее */newbot* - введите имя - введите юзернейм с *bot/_bot* на конце,
 скопируйте токен бота и вставьте его в BOT_TOKEN внутри .env
 
-*API_SITY*: [OpenWeather](https://openweathermap.org/api) или любой другой API погоды 
+*API_CITY*: [OpenWeather](https://openweathermap.org/api) или любой другой API погоды 
